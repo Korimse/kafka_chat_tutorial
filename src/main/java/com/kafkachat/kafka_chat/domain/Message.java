@@ -1,17 +1,52 @@
 package com.kafkachat.kafka_chat.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
-@RequiredArgsConstructor
 public class Message implements Serializable {
 
-    private final String author;
-    private final String content;
-    private final String timestamp;
+    private String author;
+    private String content;
+    private String timestamp;
+
+    public Message() {
+    }
+
+    public Message(String author, String content) {
+        this.author = author;
+        this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "author='" + author + '\'' +
+                ", content='" + content + '\'' +
+                ", timestamp='" + timestamp + '\'' +
+                '}';
+    }
 }
