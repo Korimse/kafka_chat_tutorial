@@ -22,7 +22,7 @@ public class ChatController {
     private KafkaTemplate<String, Message> kafkaTemplate;
 
     @PostMapping(value = "/publish")
-    public void sendMessage(@RequestBody Message message) {
+    public void sendMessages(@RequestBody Message message) {
         log.info("Produce message : " + message.toString());
         message.setTimestamp(LocalDateTime.now().toString());
         try {
@@ -31,11 +31,11 @@ public class ChatController {
             throw new RuntimeException(e);
         }
     }
-
-    @MessageMapping("/sendMessage")
-    @SendTo("/topic/group")
-    public Message broadcastGroupMessage(@Payload Message message) {
-        return message;
-    }
+//
+//    @MessageMapping("sendMessages")
+//    @SendTo("/topic/group")
+//    public Message broadcastGroupMessage(@Payload Message message) {
+//        return message;
+//    }
 
 }
