@@ -16,12 +16,22 @@ public class MessageListener {
     @Autowired
     SimpMessagingTemplate template;
 
-    @KafkaListener(
-            topics = KafkaConstants.KAFKA_TOPIC,
-            groupId = KafkaConstants.GROUP_ID
-    )
-    public void listen(Message message) {
-        log.info("sending via kafka listener..");
-        template.convertAndSend("/topic/group", message);
-    }
+//    @KafkaListener(
+//            topics = KafkaConstants.KAFKA_TOPIC,
+//            groupId = "foo"
+//    )
+//    public void listen(Message message) {
+//        log.info("sending via kafka listener.. kafka-chat");
+//        template.convertAndSend("/topic/group", message);
+//    }
+//
+//    @KafkaListener(
+//            topics = "kafka",
+//            groupId = "foo"
+//    )
+//    public void listen2(Message message) {
+//        log.info("sending via kafka listener.. kafka");
+//        template.convertAndSend("/topic/group", message);
+//
+//    }
 }
