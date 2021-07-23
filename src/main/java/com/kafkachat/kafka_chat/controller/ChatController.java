@@ -44,7 +44,7 @@ public class ChatController {
     )
     public void listen(Message message) {
         log.info("sending via kafka listener.. ");
-        template.convertAndSend("/topic/groups/" + message.getId(), message);
+        template.convertAndSend("/topic/groups", message);
     }
 
 //    @MessageMapping("/hello")
